@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django</title>
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" />
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'main_index' %}">Django</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {% for category in categoties %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'main_category' category.id %}">{{ category.name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'main_post_add' %}">Maqola qo'shish</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">{{ user.get_full_name }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_logout' %}">Chiqish</a>
+                    </li>
+                    {%else%}
+                    <a class="nav-link" href="{% url 'account_login' %}">Tizimga kirish</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_registration' %}">Ro'yhatdan o'tish</a>
+                    </li>
+                    {%endif%}
+                    <li class="nav-item dropdown">
+                        <a href='#' class=' nav-link dropdown-toggle' data-bs-toggle="dropdown">{{ LANGUAGE_CODE }}</a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            {% for l in LANGUAGES %}
+                            <li><a href='/{{ l.0 }}/'
+                                    class="dropdown-item {% if l.0 == LANGUAGE_CODE %} active {% endif %} ">{{l.1}}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-3">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% block content %}{% endblock %}
+    </div>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
+</body>
+
+</html>

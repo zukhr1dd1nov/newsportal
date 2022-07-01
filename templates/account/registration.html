@@ -1,0 +1,21 @@
+{% extends "layouts/base.html" %}
+{% load crispy_forms_filters i18n %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-6 offset-lg-3">
+        <form method="post" action="" class="card">
+            <div class="card-header">{% translate "Ro'yhatdan o'tish" %}</div>
+            <div class="card-body">
+                {% csrf_token %}
+                {{ form|crispy }}
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-success">{% translate "Ro'yhatdan o'tish" %}</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

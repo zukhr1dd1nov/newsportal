@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-02 00:04+0500\n"
+"PO-Revision-Date: 2022-02-02 00:13+0500\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.3\n"
+
+#: account/forms.py:14
+msgid "Parol takroran"
+msgstr ""
+
+#: account/forms.py:15
+msgid "Ism"
+msgstr "Name"
+
+#: account/forms.py:16
+msgid "Famliya"
+msgstr "Surname"
+
+#: account/forms.py:21
+msgid "Iltimos faqat lotin harflarinin kiriting!"
+msgstr ""
+
+#: account/forms.py:31
+msgid "Parollar bir-xil emas"
+msgstr ""
+
+#: account/views.py:19
+msgid "{user.get_full_name()} xush kelibsiz!"
+msgstr "{user.get_full_name()} welcome!"
+
+#: account/views.py:24
+msgid "Login va/yoki parol noto'g'ri"
+msgstr "Username and/or password are incorrect"
+
+#: account/views.py:38
+msgid "Siz mufavaqqiyatli ro'yhatdan o'tdingiz!!!"
+msgstr "You have successfully registered!"
+
+#: account/views.py:44
+msgid "Kelib turing , {request.user.get_full_name()}!!!"
+msgstr "Come again , {request.user.get_full_name()}!!!"
+
+#: templates/account/login.html:9
+msgid "Login"
+msgstr "Login"
+
+#: templates/account/login.html:15
+msgid "Tizimga kirish"
+msgstr "Login"
+
+#: templates/account/registration.html:9 templates/account/registration.html:15
+msgid "Ro'yhatdan o'tish"
+msgstr "Registration"
+
+#: templates/main/index.html:6
+msgid "Uy"
+msgstr "Home"

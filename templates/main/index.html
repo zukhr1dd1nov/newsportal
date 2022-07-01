@@ -1,0 +1,28 @@
+{% extends "layouts/base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="row">
+    {% for post in posts %}
+    <div class='col-lg-3 mb-3'>
+        <div class='card h-100 '>
+            <div class='card-header '>{{ post.suject }}</div>
+            <div class='card-body'>
+                <strong>Sana:</strong>{{ post.added_at }}</br>
+                <strong>Kategoriya:</strong>{{ post.category.name }}<br/><br/> 
+
+                <a href="{% url 'main_post_read' post.id %}"> O'qish </a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <h1>
+            Yo'q ekan
+        </h1>
+    </div>
+    {%endfor%}
+</div>
+
+{% endblock %}
